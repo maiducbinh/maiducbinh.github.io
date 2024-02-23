@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Info</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .about-me {
+      grid-column: 1 / span 3;
+    }
+
+    .right {
+      grid-column: 2 / span 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card_image">
+      <img src="img/44154330_442685642802103_6719670157876133888_n.jpg" alt="avatar logo" />
+    </div>
+    <h2>Mai Duc Binh</h2>
+    <p>AI Learner</p>
+    <div class="social">
+      <a href="https://www.facebook.com/mducbinh"><i class="bx bxl-facebook"></i></a>
+      <a href="https://www.youtube.com/@maiducbinh"><i class="bx bxl-youtube"></i></a>
+      <a href="https://github.com/maiducbinh"><i class="bx bxl-github"></i></a>
+    </div>
+    <button class="card_button" onclick="redirectToFacebook()">Contact me</button>
+  </div>
+
+  <div class="right">
+    <p class="about">About Me</p>
+    <p>Hello! I'm Mai Duc Binh, an AI Learner passionate about exploring the world of artificial intelligence and machine learning. Connect with me on social media to stay updated on my journey!</p>
+  </div>
+</body>
+
+<script>
+  function redirectToFacebook() {
+      // Chuyển hướng sang trang Facebook
+      window.location.href = "https://www.facebook.com/mducbinh";
+  }
+</script>
+
+</html>
