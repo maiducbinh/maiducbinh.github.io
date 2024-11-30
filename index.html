@@ -1,53 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Info</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Researcher Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
   <style>
+    :root {
+      --primary-color: #FF6B6B;
+      /* Coral Pink */
+      --secondary-color: #4ECDC4;
+      /* Turquoise */
+      --accent-color: #FFE66D;
+      /* Sunny Yellow */
+      --gradient-1: #FF6B6B;
+      /* Coral Pink */
+      --gradient-2: #6C63FF;
+      /* Bright Purple */
+      --gradient-3: #4ECDC4;
+      /* Turquoise */
+      --dark-bg: #2C3E50;
+      /* Dark Blue-Gray */
+      --dark-card: #34495E;
+      /* Lighter Blue-Gray */
+      --dark-text: #ECF0F1;
+      /* Light Gray */
+    }
+
     body {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      transition: background-color 0.3s, color 0.3s;
+      background-color: #f8f9fa;
     }
 
-    .about-me {
-      grid-column: 1 / span 3;
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
     }
 
-    .right {
-      grid-column: 2 / span 1;
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--primary-color);
+      box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+    }
+
+    .ai-bg {
+      background: linear-gradient(120deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: bold;
+    }
+
+    .project-card {
+      border: none;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark-mode .card {
+      background-color: var(--dark-card);
+      color: var(--dark-text);
+    }
+
+    .certificate-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .neural-network-bg {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(108, 99, 255, 0.1) 50%, rgba(78, 205, 196, 0.1) 100%);
+      padding: 100px 0;
+    }
+
+    .btn-custom {
+      background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode .navbar {
+      background: rgba(44, 62, 80, 0.95) !important;
+    }
+
+    .section-divider {
+      height: 5px;
+      background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+      margin: 50px 0;
+      border-radius: 5px;
+    }
+
+    .skill-badge {
+      background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .contact-icon:hover {
+      color: var(--gradient-2);
+      transform: scale(1.1);
+    }
+
+    /* Animation for cards */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .project-card {
+      border: none;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px var(--light-shadow);
+      overflow: hidden;
+      background-color: var(--light-card);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    }
+
+    .achievement-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <div class="card_image">
-      <img src="img/44154330_442685642802103_6719670157876133888_n.jpg" alt="avatar logo" />
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand ai-bg" href="#">AI Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#certificates">Certificates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#publications">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn" id="darkModeToggle">
+              <i class="bi bi-moon-fill"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
-    <h2>Mai Duc Binh</h2>
-    <p>AI Learner</p>
-    <div class="social">
-      <a href="https://www.facebook.com/mducbinh"><i class="bx bxl-facebook"></i></a>
-      <a href="https://www.youtube.com/@maiducbinh"><i class="bx bxl-youtube"></i></a>
-      <a href="https://github.com/maiducbinh"><i class="bx bxl-github"></i></a>
-    </div>
-    <button class="card_button" onclick="redirectToFacebook()">Contact me</button>
-  </div>
+  </nav>
 
-  <div class="right">
-    <p class="about">About Me</p>
-    <p>Hello! I'm Mai Duc Binh, an AI Learner passionate about exploring the world of artificial intelligence and machine learning. Connect with me on social media to stay updated on my journey!</p>
-  </div>
+  <!-- Hero Section -->
+  <section class="neural-network-bg">
+    <div class="container text-center animate-fadeInUp">
+      <img src="./img/avatar.jpg" alt="Profile Picture" class="profile-img mb-4">
+      <h1 class="display-4 fw-bold ai-bg">Mai Duc Binh</h1>
+      <p class="lead">Artificial Intelligence Researcher & Innovation Explorer</p>
+      <div class="mt-4">
+        <span class="skill-badge">Machine Learning</span>
+        <span class="skill-badge">Deep Learning</span>
+        <span class="skill-badge">Neural Networks</span>
+        <span class="skill-badge">Computer Vision</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container animate-fadeInUp">
+      <h2 class="text-center mb-5 ai-bg">About Me</h2>
+      <div class="row">
+        <!-- Education column -->
+        <div class="col-lg-4">
+          <div class="card project-card mb-4">
+            <div class="card-body">
+              <h3>Education</h3>
+                <li class="mb-3">
+                  <h5>Engineer's in Artificial Intelligence</h5>
+                  <p>Posts and Telecommunications Institute of Technology | 2021-2026</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements column -->
+        <div class="col-lg-4">
+          <div class="card project-card mb-4">
+            <div class="card-body">
+              <h3>Achievements</h3>
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <h5>IEC PTIT Member</h5>
+                  <p>Member of PTIT Innovation & Entrepreneurship Center</p>
+                </li>
+                <li class="mb-3">
+                  <h5>Olympic Team Member</h5>
+                  <p>PTIT Informatics Olympic Team 2022</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Interests column -->
+        <div class="col-lg-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <h3>Research Interests</h3>
+              <ul>
+                <li>Machine Learning & Deep Learning</li>
+                <li>Natural Language Processing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 ai-bg">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4 animate-fadeInUp">
+          <div class="card project-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Personalized Assistant for MBA</h5>
+              <p class="card-text">A website helping MBA student to grow their skills and knowledge.
+              </p>
+              <a href="https://mba.ptit.edu.vn/chat/" class="btn btn-custom">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 animate-fadeInUp">
+          <div class="card project-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">LISA Chatbot</h5>
+              <p class="card-text">A chatbot helping students to find information about CIE PTIT.</p>                
+              <a href="https://ami.ptit.edu.vn/lisa/chat" class="btn btn-custom">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 animate-fadeInUp">
+          <div class="card project-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Social Media Listening</h5>
+              <p class="card-text">Using large language model to listening to the response of custumers.</p>
+              <a href="#" class="btn btn-custom">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 ai-bg">Language Certificates</h2>
+      <div class="row g-4">
+        <div class="col-md-4 animate-fadeInUp">
+          <div class="card project-card h-100">
+            <img src="./img/ielts.jpg" class="certificate-img" alt="Certificate 1">
+            <div class="card-body">
+              <h5 class="card-title">IELTS Academic</h5>
+              <p class="card-text">Score: 7.0 Overall - 8.5 Reading</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add more certificates as needed -->
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Publications Section -->
+  <section id="publications" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 ai-bg">Research Publications</h2>
+      <div class="card project-card">
+        <div class="card-body text-center">
+          <i class="bi bi-journal-text" style="font-size: 3rem;"></i>
+          <h4 class="mt-3">Coming Soon</h4>
+          <p>Research papers are currently in progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 ai-bg">Contact Me</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="d-flex justify-content-center gap-4">
+            <a href="mailto:ducbinh123bg@gmail.com" class="btn btn-custom">
+              <i class="bi bi-envelope-fill"></i> Email
+            </a>
+            <a href="https://github.com/maiducbinh" class="btn btn-custom">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://fb.com/mducbinh" class="btn btn-custom">
+              <i class="bi bi-facebook"></i> Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 text-center">
+    <p>&copy; 2024 Mai Duc Binh. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const icon = darkModeToggle.querySelector('i');
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+      } else {
+        icon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+      }
+    });
+
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-fadeInUp');
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = "1";
+          element.style.transform = "translateY(0)";
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
 </body>
-
-<script>
-  function redirectToFacebook() {
-      // Chuyển hướng sang trang Facebook
-      window.location.href = "https://www.facebook.com/mducbinh";
-  }
-</script>
 
 </html>
