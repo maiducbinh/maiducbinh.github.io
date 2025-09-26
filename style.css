@@ -448,7 +448,7 @@ body {
 }
 
 .award-year {
-    min-width: 80px;
+    width: 120px;
     font-weight: 600;
     color: var(--accent-color);
     font-size: 1.1rem;
@@ -750,7 +750,7 @@ body {
     .experience-period,
     .news-date,
     .award-year {
-        min-width: auto;
+        width: auto;
         font-size: 0.9rem;
     }
 
