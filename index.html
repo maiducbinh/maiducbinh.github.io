@@ -1,426 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mai Duc Binh Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-  <style>
-    :root {
-      --primary-color: #FF6B6B;
-      /* Coral Pink */
-      --secondary-color: #4ECDC4;
-      /* Turquoise */
-      --accent-color: #FFE66D;
-      /* Sunny Yellow */
-      --gradient-1: #FF6B6B;
-      /* Coral Pink */
-      --gradient-2: #6C63FF;
-      /* Bright Purple */
-      --gradient-3: #4ECDC4;
-      /* Turquoise */
-      --dark-bg: #2C3E50;
-      /* Dark Blue-Gray */
-      --dark-card: #34495E;
-      /* Lighter Blue-Gray */
-      --dark-text: #ECF0F1;
-      /* Light Gray */
-    }
-
-    body {
-      transition: background-color 0.3s, color 0.3s;
-      background-color: #f8f9fa;
-    }
-
-    body.dark-mode {
-      background-color: var(--dark-bg);
-      color: var(--dark-text);
-    }
-
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid var(--primary-color);
-      box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
-    }
-
-    .ai-bg {
-      background: linear-gradient(120deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-weight: bold;
-    }
-
-    .project-card {
-      border: none;
-      border-radius: 15px;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .dark-mode .card {
-      background-color: var(--dark-card);
-      color: var(--dark-text);
-    }
-
-    .certificate-img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .neural-network-bg {
-      position: relative;
-      background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(108, 99, 255, 0.1) 50%, rgba(78, 205, 196, 0.1) 100%);
-      padding: 100px 0;
-    }
-
-    .btn-custom {
-      background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-      border: none;
-      color: white;
-      padding: 10px 25px;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-    }
-
-    .btn-custom:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .navbar {
-      background: rgba(255, 255, 255, 0.95) !important;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .dark-mode .navbar {
-      background: rgba(44, 62, 80, 0.95) !important;
-    }
-
-    .section-divider {
-      height: 5px;
-      background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
-      margin: 50px 0;
-      border-radius: 5px;
-    }
-
-    .skill-badge {
-      background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      margin: 5px;
-      display: inline-block;
-      font-size: 0.9rem;
-    }
-
-    .contact-icon {
-      font-size: 2rem;
-      color: var(--primary-color);
-      transition: all 0.3s ease;
-    }
-
-    .contact-icon:hover {
-      color: var(--gradient-2);
-      transform: scale(1.1);
-    }
-
-    /* Animation for cards */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-fadeInUp {
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .project-card {
-      border: none;
-      border-radius: 15px;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px var(--light-shadow);
-      overflow: hidden;
-      background-color: var(--light-card);
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-      background: linear-gradient(145deg, #ffffff, #f5f5f5);
-    }
-
-    .achievement-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binh Duc Mai - Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-    <div class="container">
-      <a class="navbar-brand ai-bg" href="#">AI Portfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#certificates">Certificates</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#publications">Publications</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <button class="btn" id="darkModeToggle">
-              <i class="bi bi-moon-fill"></i>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="neural-network-bg">
-    <div class="container text-center animate-fadeInUp">
-      <img src="./img/avatar.jpg" alt="Profile Picture" class="profile-img mb-4">
-      <h1 class="display-4 fw-bold ai-bg">Mai Duc Binh</h1>
-      <p class="lead">Artificial Intelligence Researcher & Innovation Explorer</p>
-      <div class="mt-4">
-        <span class="skill-badge">Machine Learning</span>
-        <span class="skill-badge">Deep Learning</span>
-        <span class="skill-badge">Neural Networks</span>
-        <span class="skill-badge">Computer Vision</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-5">
-    <div class="container animate-fadeInUp">
-      <h2 class="text-center mb-5 ai-bg">About Me</h2>
-      <div class="row">
-        <!-- Education column -->
-        <div class="col-lg-4">
-          <div class="card project-card mb-4">
-            <div class="card-body">
-              <h3>Education</h3>
-                <li class="mb-3">
-                  <h5>Engineer's in Artificial Intelligence</h5>
-                  <p>Posts and Telecommunications Institute of Technology | 2021-2026</p>
-                </li>
-              </ul>
+<body class="light-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Binh Duc Mai</h2>
             </div>
-          </div>
-        </div>
-
-        <!-- Achievements column -->
-        <div class="col-lg-4">
-          <div class="card project-card mb-4">
-            <div class="card-body">
-              <h3>Achievements</h3>
-              <ul class="list-unstyled">
-                <li class="mb-3">
-                  <h5>IEC PTIT Member</h5>
-                  <p>Member of PTIT Innovation & Entrepreneurship Center</p>
-                </li>
-                <li class="mb-3">
-                  <h5>Olympic Team Member</h5>
-                  <p>PTIT Informatics Olympic Team 2022</p>
-                </li>
-              </ul>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#news" class="nav-link">News</a>
+                <a href="#awards" class="nav-link">Awards</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
             </div>
-          </div>
-        </div>
-
-        <!-- Research Interests column -->
-        <div class="col-lg-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <h3>Research Interests</h3>
-              <ul>
-                <li>Machine Learning & Deep Learning</li>
-                <li>Natural Language Processing</li>
-              </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <div class="section-divider"></div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Home Section -->
+            <section id="home" class="home-section">
+                <div class="about-me">
+                    <h1 class="page-title">About me</h1>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>
+                                Hello, I am Binh Duc Mai. I am pursuing a B.Eng. at PTIT (2021–2026) under the supervision of 
+                                <a href="https://scholar.google.com/citations?hl=vi&user=wXkxRzwAAAAJ" target="_blank">Dr. Cong Tran</a>. 
+                                Currently, I am working as a Research Assistant at PTIT, where I focus on generative models for audio. 
+                                My research interests include generative models, multimodal models, computer vision, natural language processing, 
+                                and audio/signal processing.
+                            </p>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 ai-bg">Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-4 animate-fadeInUp">
-          <div class="card project-card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Personalized Assistant for MBA</h5>
-              <p class="card-text">A website helping MBA student to grow their skills and knowledge.
-              </p>
-              <a href="https://mba.ptit.edu.vn/chat/" class="btn btn-custom">Learn More</a>
+                            <p>
+                                I look forward to the opportunity to pursue a PhD after graduation.
+                            </p>
+                            <div class="contact-info">
+                                <p><strong>Email:</strong> binhmai2205@gmail.com </p>
+                                <p><strong>Institution:</strong> Posts and Telecommunications Institute of Technology - PTIT</p>
+                                <p><strong>Research Areas:</strong> Generative Models, Multimodal Models, Computer Vision, Natural Language Processing, Audio/Signal Processing</p>
+                            </div>
+                        </div>
+                        <div class="profile-image">
+                            <img src="img/avatar.jpg" alt="Profile Picture" class="profile-img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="section">
+                <h2 class="section-title">Publications</h2>
+                <div class="publications-list">
+                    <div class="publication-item">
+                        <div class="publication-year">2025</div>
+                        <div class="publication-content">
+                            <div class="publication-header">
+                                <span class="journal-badge q1">Q1 Journal - IF:4.2</span>
+                                <span class="publication-date">Published</span>
+                            </div>
+                            <h3 class="publication-title">TS2F: Text-Assisted Speech-to-Face Generation</h3>
+                            <p class="authors"><strong>Binh Mai Duc</strong>, Hung Dinh Manh, Cong Tran</p>
+                            <p class="journal-name"><em>ICT Express</em></p>
+                            <div class="publication-links">
+                                <a href="#" class="publication-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Paper
+                                </a>
+                                <a href="https://github.com/maiducbinh/TS2F" class="publication-link">
+                                    <i class="fab fa-github"></i>
+                                    Code
+                                </a>
+                                <a href="#" class="publication-link">
+                                    <i class="fas fa-quote-left"></i>
+                                    BibTeX
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- News Section -->
+            <section id="news" class="section">
+                <h2 class="section-title">News</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-date">24/09/2025</div>
+                        <div class="news-content">
+                            <p>Our paper <strong>"TS2F: Text-Assisted Speech-to-Face Generation"</strong> has been accepted for publication in <em>ICT Express</em>.</p>
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-date">26/07/2025</div>
+                        <div class="news-content">
+                            <p>Our team <strong>"GlamAura"</strong> has been participating in the <em>Coding Fest</em> held by the University of Sydney.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">01/04/2025</div>
+                        <div class="news-content">
+                            <p>I started working as a <strong>Research Assistant</strong> at Faculty of AI, PTIT under the supervision of Dr. Cong Tran.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="news-toggle">
+                    <button class="toggle-btn" id="news-toggle">
+                        <span class="toggle-text">[Older news]</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="older-news" id="older-news" style="display: none;">
+                    <div class="news-item">
+                        <div class="news-date">10/01/2025</div>
+                        <div class="news-content">
+                            <p>I have received the <strong>Future VPBanker Scholarship 2025</strong> by VPBank.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- Awards Section -->
+            <section id="awards" class="section">
+                <h2 class="section-title">Awards & Recognition</h2>
+                <div class="awards-list"> 
+                    <div class="award-item">
+                        <div class="award-year">2025</div>
+                        <div class="award-content">
+                            <h3>Future VPBanker Scholarship</h3>
+                            <p class="award-institution">VPBank</p>
+                        </div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2024</div>
+                        <div class="award-content">
+                            <h3>Samsung Talented Program Scholarship</h3>
+                            <p class="award-institution">Samsung Vietnam</p>
+                        </div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2021-2026</div>
+                        <div class="award-content">
+                            <h3>Academic Excellence Scholarships</h3>
+                            <p class="award-institution">Posts and Telecommunications Institute of Technology</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <div class="experience-period">2025 - Present</div>
+                        <div class="experience-content">
+                            <h3>Research Assistant</h3>
+                            <p class="institution">Faculty of AI, PTIT</p>
+                            <p class="supervisor">Supervised by: Dr. Cong Tran</p>
+                            <ul class="responsibilities">
+                                <li>Participate in scientific research projects and contribute to publishing papers in international journals and conferences.</li>
+                                <li>Support faculty members and research teams in academic and departmental activities.</li>
+                                <li>Assist in teaching-related tasks, including preparing materials, guiding students, and facilitating discussions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <div class="project-header">
+                            <h3>LISA Chatbot</h3>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Link
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Lisa is a multilingual chatbot developed for international students studying at PTIT. It supports three languages — Vietnamese, English, and Lao — to assist students in accessing academic information, navigating campus life, and connecting with university resources more easily.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Chatbot</span>
+                            <span class="tech-tag">RAG</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <h3>MBA Chatbot</h3>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Link
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            The MBA Chatbot is a comprehensive system designed to support MBA students throughout their studies. It consists of 12 specialized chatbots, each corresponding to a specific course, along with one general chatbot that provides overall academic assistance. Together, they help students with subject-specific guidance, course-related information, and general support for their MBA program.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Chatbot</span>
+                            <span class="tech-tag">RAG</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <h3>Python Learning Support System</h3>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Link
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                           This system is designed to enhance the learning experience of students studying Python. It allows learners to:
+                            
+                        </p>
+                         <div>• Access and review lecture materials.</div>
+  <div>• Practice coding in Python with interactive exercises.</div>
+  <div>• Strengthen knowledge through multiple-choice quizzes.</div>
+  <div>• Interact with a tutoring chatbot for personalized guidance and support.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Framework</span>
+                            <span class="tech-tag">Innovation</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope"></i> binhmai2205@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Posts and Telecommunications Institute of Technology (PTIT)</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/binh-mai-duc/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/maiducbinh" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://facebook.com/mducbinh" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="mailto:binhmai2205@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4 animate-fadeInUp">
-          <div class="card project-card h-100">
-            <div class="card-body">
-              <h5 class="card-title">LISA Chatbot</h5>
-              <p class="card-text">A chatbot helping students to find information about CIE PTIT.</p>                
-              <a href="https://ami.ptit.edu.vn/lisa/chat" class="btn btn-custom">Learn More</a>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Your Name. All rights reserved.</p>
             </div>
-          </div>
         </div>
-        <div class="col-md-4 animate-fadeInUp">
-          <div class="card project-card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Social Media Listening</h5>
-              <p class="card-text">Using large language model to listening to the response of custumers.</p>
-              <a href="#" class="btn btn-custom">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <div class="section-divider"></div>
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.classList.add(currentTheme + '-theme');
+        
+        // Update theme toggle icon
+        const updateThemeIcon = (theme) => {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        };
+        
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const isDark = body.classList.contains('dark-theme');
+            const newTheme = isDark ? 'light' : 'dark';
+            
+            body.classList.remove('light-theme', 'dark-theme');
+            body.classList.add(newTheme + '-theme');
+            
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
 
-  <!-- Certificates Section -->
-  <section id="certificates" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 ai-bg">Language Certificates</h2>
-      <div class="row g-4">
-        <div class="col-md-4 animate-fadeInUp">
-          <div class="card project-card h-100">
-            <img src="./img/ielts.jpg" class="certificate-img" alt="Certificate 1">
-            <div class="card-body">
-              <h5 class="card-title">IELTS Academic</h5>
-              <p class="card-text">Score: 7.0 Overall - 8.5 Reading</p>
-            </div>
-          </div>
-        </div>
-        <!-- Add more certificates as needed -->
-      </div>
-    </div>
-  </section>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
 
-  <div class="section-divider"></div>
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
-  <!-- Publications Section -->
-  <section id="publications" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 ai-bg">Research Publications</h2>
-      <div class="card project-card">
-        <div class="card-body text-center">
-          <i class="bi bi-journal-text" style="font-size: 3rem;"></i>
-          <h4 class="mt-3">Coming Soon</h4>
-          <p>Research papers are currently in progress.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        // News toggle functionality
+        const newsToggle = document.getElementById('news-toggle');
+        const olderNews = document.getElementById('older-news');
+        const toggleText = newsToggle.querySelector('.toggle-text');
+        const toggleIcon = newsToggle.querySelector('i');
+        
+        newsToggle.addEventListener('click', () => {
+            if (olderNews.style.display === 'none') {
+                olderNews.style.display = 'block';
+                toggleText.textContent = '[Latest news]';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            } else {
+                olderNews.style.display = 'none';
+                toggleText.textContent = '[Older news]';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            }
+        });
 
-  <div class="section-divider"></div>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu after clicking
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 ai-bg">Contact Me</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="d-flex justify-content-center gap-4">
-            <a href="mailto:ducbinh123bg@gmail.com" class="btn btn-custom">
-              <i class="bi bi-envelope-fill"></i> Email
-            </a>
-            <a href="https://github.com/maiducbinh" class="btn btn-custom">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://fb.com/mducbinh" class="btn btn-custom">
-              <i class="bi bi-facebook"></i> Facebook
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-  <footer class="py-4 text-center">
-    <p>&copy; 2024 Mai Duc Binh. All rights reserved.</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-    const icon = darkModeToggle.querySelector('i');
-
-    darkModeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      if (body.classList.contains('dark-mode')) {
-        icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
-      } else {
-        icon.classList.replace('bi-sun-fill', 'bi-moon-fill');
-      }
-    });
-
-    // Animation on scroll
-    function animateOnScroll() {
-      const elements = document.querySelectorAll('.animate-fadeInUp');
-      elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < window.innerHeight - elementVisible) {
-          element.style.opacity = "1";
-          element.style.transform = "translateY(0)";
-        }
-      });
-    }
-
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-  </script>
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
