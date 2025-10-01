@@ -85,14 +85,14 @@
                         <div class="publication-year">2025</div>
                         <div class="publication-content">
                             <div class="publication-header">
-                                <span class="journal-badge q1">Q1 Journal - IF:4.2</span>
+                                <span class="journal-badge q1">Q1 Journal - IF: 4.2</span>
                                 <span class="publication-date">Published</span>
                             </div>
                             <h3 class="publication-title">TS2F: Text-Assisted Speech-to-Face Generation</h3>
-                            <p class="authors"><strong>Binh Mai Duc</strong>, Hung Dinh Manh, Cong Tran</p>
+                            <p class="authors"><strong>Binh Duc Mai</strong>, Hung Manh Dinh, Cong Tran</p>
                             <p class="journal-name"><em>ICT Express</em></p>
                             <div class="publication-links">
-                                <a href="#" class="publication-link">
+                                <a href="https://www.sciencedirect.com/science/article/pii/S240595952500147X" class="publication-link">
                                     <i class="fas fa-external-link-alt"></i>
                                     Paper
                                 </a>
@@ -100,10 +100,22 @@
                                     <i class="fab fa-github"></i>
                                     Code
                                 </a>
-                                <a href="#" class="publication-link">
+                                <a href="#" class="publication-link bibtex-toggle" data-paper="ts2f">
                                     <i class="fas fa-quote-left"></i>
                                     BibTeX
                                 </a>
+                            </div>
+                            <div class="bibtex-section" id="bibtex-ts2f" style="display: none;">
+                                <div class="bibtex-content">
+                                    <div class="bibtex-header">
+                                        <h4>BibTeX Citation</h4>
+                                        <button class="bibtex-copy-btn" data-paper="ts2f">
+                                            <i class="fas fa-copy"></i>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <div class="bibtex-code" id="bibtex-code-ts2f"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -395,6 +407,95 @@
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
+                }
+            });
+        });
+
+        // BibTeX Inline functionality
+        // BibTeX data for different papers
+        const bibtexData = {
+            'ts2f': `@article{mai2025ts2f,
+  title={TS2F: Text-Assisted Speech-to-Face Generation},
+  author={Mai, Binh Duc and Dinh, Hung Manh and Tran, Cong},
+  journal={ICT Express},
+  year={2025},
+  publisher={Elsevier},
+  doi={10.1016/j.icte.2025.09.009},
+  url={https://www.sciencedirect.com/science/article/pii/S240595952500147X}
+}`
+        };
+        
+        // Handle BibTeX toggle clicks
+        document.querySelectorAll('.bibtex-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const paperId = toggle.getAttribute('data-paper');
+                const bibtexSection = document.getElementById(`bibtex-${paperId}`);
+                const bibtexCodeElement = document.getElementById(`bibtex-code-${paperId}`);
+                const bibtex = bibtexData[paperId];
+                
+                if (bibtexSection && bibtex) {
+                    // Toggle visibility
+                    if (bibtexSection.style.display === 'none') {
+                        // Show BibTeX
+                        bibtexCodeElement.textContent = bibtex;
+                        bibtexSection.style.display = 'block';
+                        toggle.classList.add('active');
+                        
+                        // Smooth scroll to BibTeX section
+                        setTimeout(() => {
+                            bibtexSection.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'nearest' 
+                            });
+                        }, 100);
+                    } else {
+                        // Hide BibTeX
+                        bibtexSection.style.display = 'none';
+                        toggle.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Copy to clipboard functionality
+        document.querySelectorAll('.bibtex-copy-btn').forEach(copyBtn => {
+            copyBtn.addEventListener('click', async (e) => {
+                const paperId = copyBtn.getAttribute('data-paper');
+                const bibtexText = bibtexData[paperId];
+                
+                if (bibtexText) {
+                    try {
+                        await navigator.clipboard.writeText(bibtexText);
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                        copyBtn.classList.add('copied');
+                        
+                        // Reset button after 2 seconds
+                        setTimeout(() => {
+                            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                            copyBtn.classList.remove('copied');
+                        }, 2000);
+                    } catch (err) {
+                        // Fallback for older browsers
+                        const textArea = document.createElement('textarea');
+                        textArea.value = bibtexText;
+                        document.body.appendChild(textArea);
+                        textArea.focus();
+                        textArea.select();
+                        try {
+                            document.execCommand('copy');
+                            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                            copyBtn.classList.add('copied');
+                            
+                            setTimeout(() => {
+                                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                                copyBtn.classList.remove('copied');
+                            }, 2000);
+                        } catch (err) {
+                            console.error('Failed to copy text: ', err);
+                        }
+                        document.body.removeChild(textArea);
+                    }
                 }
             });
         });

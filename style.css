@@ -827,12 +827,135 @@ body {
     transform: translateY(0);
 }
 
+/* BibTeX Inline Styles */
+.bibtex-section {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+.bibtex-content {
+    width: 100%;
+}
+
+.bibtex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bibtex-header h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.bibtex-code {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+    margin-bottom: 0;
+}
+
+.bibtex-copy-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bibtex-copy-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.bibtex-copy-btn.copied {
+    background-color: #10b981;
+}
+
+.bibtex-toggle {
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.bibtex-toggle.active {
+    color: var(--accent-color) !important;
+}
+
+.bibtex-toggle.active i {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bibtex-section {
+        padding: 1rem;
+    }
+    
+    .bibtex-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .bibtex-copy-btn {
+        align-self: flex-end;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .bibtex-code {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+    }
+}
+
 /* Print styles */
 @media print {
     .navbar,
     .theme-toggle,
     .hamburger,
-    .footer {
+    .footer,
+    .bibtex-copy-btn {
         display: none !important;
     }
     
@@ -843,5 +966,10 @@ body {
     body {
         background: white !important;
         color: black !important;
+    }
+    
+    .bibtex-section {
+        border: 1px solid #ccc;
+        background: white !important;
     }
 }
