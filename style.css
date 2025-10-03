@@ -973,3 +973,183 @@ body {
         background: white !important;
     }
 }
+
+/* Connect Section in About Me - Consistent Design */
+.connect-section {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--accent-color);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+.connect-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--shadow-light);
+}
+
+.connect-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.connect-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.connect-header p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: inherit;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover::before {
+    transform: scale(1.1);
+}
+
+.social-link i {
+    position: relative;
+    z-index: 1;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+/* Individual platform colors */
+.social-link.linkedin {
+    background: #0077b5;
+}
+
+.social-link.linkedin:hover {
+    background: #005885;
+}
+
+.social-link.github {
+    background: #333;
+}
+
+.social-link.github:hover {
+    background: #000;
+}
+
+.social-link.scholar {
+    background: #4285f4;
+}
+
+.social-link.scholar:hover {
+    background: #1a73e8;
+}
+
+.social-link.facebook {
+    background: #1877f2;
+}
+
+.social-link.facebook:hover {
+    background: #0d5bb8;
+}
+
+.social-link.email {
+    background: #ea4335;
+}
+
+.social-link.email:hover {
+    background: #d33b2c;
+}
+
+/* Responsive Design for Connect Section */
+@media (max-width: 768px) {
+    .connect-section {
+        margin-top: var(--spacing-lg);
+        padding: var(--spacing-md);
+        max-width: 100%;
+    }
+    
+    .connect-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .connect-header p {
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        gap: var(--spacing-sm);
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .connect-section {
+        margin-top: var(--spacing-md);
+        padding: var(--spacing-sm);
+        max-width: 100%;
+    }
+    
+    .connect-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .connect-header p {
+        font-size: 0.85rem;
+    }
+    
+    .social-links {
+        gap: var(--spacing-xs);
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
