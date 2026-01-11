@@ -425,14 +425,16 @@ body {
     margin-top: var(--spacing-lg);
 }
 
-/* Awards Section */
-.awards-list {
+/* Awards & Scholarships Section */
+.awards-list,
+.scholarships-list {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
 }
 
-.award-item {
+.award-item,
+.scholarship-item {
     display: flex;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg);
@@ -442,12 +444,14 @@ body {
     transition: all 0.3s ease;
 }
 
-.award-item:hover {
+.award-item:hover,
+.scholarship-item:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px var(--shadow-light);
 }
 
-.award-year {
+.award-year,
+.scholarship-year {
     width: 120px;
     font-weight: 600;
     color: var(--accent-color);
@@ -741,7 +745,8 @@ body {
     .publication-item,
     .experience-item,
     .news-item,
-    .award-item {
+    .award-item,
+    .scholarship-item {
         flex-direction: column;
         gap: var(--spacing-sm);
     }
@@ -749,7 +754,8 @@ body {
     .publication-year,
     .experience-period,
     .news-date,
-    .award-year {
+    .award-year,
+    .scholarship-year {
         width: auto;
         font-size: 0.9rem;
     }
@@ -785,7 +791,8 @@ body {
     .experience-item,
     .project-item,
     .news-item,
-    .award-item {
+    .award-item,
+    .scholarship-item {
         padding: var(--spacing-md);
     }
 
